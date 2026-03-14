@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+/* Keep your custom glassmorphism global styles below if you have any */
+:root {
+  background-color: #020617; /* This ensures the dark background stays */
+  color: white;
+}

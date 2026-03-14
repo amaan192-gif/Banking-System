@@ -1,0 +1,202 @@
+/* VEXA DASHBOARD CORE THEME */
+:root {
+  --v-bg: #050508;
+  --v-card: rgba(255, 255, 255, 0.03);
+  --v-border: rgba(255, 255, 255, 0.08);
+  --v-accent: #6366f1; /* Indigo */
+  --v-success: #10b981;
+  --v-error: #ef4444;
+  --v-text-main: #ffffff;
+  --v-text-dim: #94a3b8;
+}
+
+.v-dashboard-container {
+  min-height: 100vh;
+  background-color: var(--v-bg);
+  color: var(--v-text-main);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  padding: 40px 20px;
+}
+
+.v-dashboard-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* LOADER */
+.v-loader-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--v-bg);
+  gap: 15px;
+}
+
+.v-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255,255,255,0.1);
+  border-top-color: var(--v-accent);
+  border-radius: 50%;
+  animation: v-spin 1s linear infinite;
+}
+
+@keyframes v-spin { to { transform: rotate(360deg); } }
+
+/* HERO SECTION */
+.v-hero-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.v-label-top {
+  color: var(--v-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.v-main-balance {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 200;
+  letter-spacing: -0.05em;
+  margin: 0;
+  background: linear-gradient(to bottom, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.v-node-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--v-card);
+  border: 1px solid var(--v-border);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--v-text-dim);
+  margin-top: 15px;
+}
+
+.v-divider {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--v-border), transparent);
+  margin: 40px 0;
+}
+
+/* ACTIONS GRID */
+.v-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+/* HISTORY TABLE */
+.v-history-section {
+  margin-top: 20px;
+}
+
+.v-section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+}
+
+.v-section-header h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--v-text-dim);
+}
+
+.v-table-glass {
+  background: var(--v-card);
+  border: 1px solid var(--v-border);
+  border-radius: 24px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+}
+
+.v-transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.v-transaction-table th {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 16px 24px;
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--v-text-dim);
+  border-bottom: 1px solid var(--v-border);
+}
+
+.v-transaction-table td {
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.v-row-hover:hover {
+  background: rgba(255,255,255,0.02);
+}
+
+.v-td-desc span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.v-in-tag { color: var(--v-success); }
+.v-out-tag { color: var(--v-accent); }
+
+.v-td-amt { font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+.v-td-amt.pos { color: var(--v-success); }
+.v-td-amt.neg { color: #ffffff; }
+
+.v-status-dot {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.v-status-dot.approved { background: rgba(16, 185, 129, 0.1); color: var(--v-success); }
+.v-status-dot.rejected { background: rgba(239, 68, 68, 0.1); color: var(--v-error); }
+.v-status-dot.pending { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+
+.v-empty-msg {
+  text-align: center;
+  padding: 40px !important;
+  color: var(--v-text-dim);
+  font-style: italic;
+}
+
+/* ANIMATIONS */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .v-main-balance { font-size: 3rem; }
+  .v-transaction-table th:nth-child(1), 
+  .v-transaction-table td:nth-child(1) { display: none; } /* Hide date on small mobile */
+}
