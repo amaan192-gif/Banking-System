@@ -48,7 +48,7 @@ public class SecurityConfig {
             public void addCorsMappings(org.springframework.web.servlet.config.annotation.CorsRegistry registry) {
                 registry.addMapping("/**")
                         // 4. Update this to allow all if testing on different laptops via IP
-                        .allowedOrigins("http://localhost:5173", "http://127.0.0.1:5173","https://banking-system-pied-zeta.vercel.app/") 
+                        .allowedOrigins("http://localhost:5173", "http://127.0.0.1:5173","https://banking-system-pied-zeta.vercel.app") 
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*");
             }
