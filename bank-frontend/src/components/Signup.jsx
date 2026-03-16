@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import BASE_URL from '../api';
 import axios from "axios";
 import { Eye, EyeOff, Sparkles, ShieldCheck, UserPlus, Lock } from "lucide-react";
 
@@ -39,7 +40,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 
-const BASE_URL = "http://localhost:4040";
+
 
 const Signup = ({ onSignupSuccess, onGoToLogin }) => {
   // --- ORIGINAL LOGIC & STATES ---
@@ -173,51 +174,53 @@ const Signup = ({ onSignupSuccess, onGoToLogin }) => {
 
           <form onSubmit={handleSignup} className="grid grid-cols-2 gap-x-5 gap-y-6">
             <div className="col-span-2 space-y-2 group">
-              <Label className="text-gray-400 font-black text-[10px] uppercase tracking-widest ml-1 group-focus-within:text-indigo-600 transition-colors">Legal Full Name</Label>
-              <Input 
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
-                onFocus={() => setIsTyping(true)}
-                onBlur={() => setIsTyping(false)}
-                className="h-14 border-2 border-gray-100 bg-gray-50/50 focus:bg-white focus:border-indigo-500 rounded-2xl transition-all text-lg placeholder:text-gray-300" 
-                placeholder="Ex: Alexander Vexa"
-                required
-              />
-            </div>
+  <Label className="text-gray-400 font-black text-[15px] uppercase tracking-widest ml-1 group-focus-within:text-indigo-600 transition-colors">
+    Legal Full Name
+  </Label>
+  <Input 
+    value={fullName}
+    onChange={(e) => setFullName(e.target.value)}
+    onFocus={() => setIsTyping(true)}
+    onBlur={() => setIsTyping(false)}
+    className="h-14 border-2 border-gray-100 bg-gray-50/50 focus:bg-white focus:border-indigo-500 rounded-2xl transition-all text-lg text-black placeholder:text-gray-400" 
+    placeholder="Ex: Alexander Vexa"
+    required
+  />
+</div>
 
             <div className="col-span-2 space-y-2 group">
-              <Label className="text-gray-400 font-black text-[10px] uppercase tracking-widest ml-1 group-focus-within:text-indigo-600 transition-colors">Digital Correspondence (Email)</Label>
+              <Label className="text-gray-400 font-black text-[15px] uppercase tracking-widest ml-1 group-focus-within:text-indigo-600 transition-colors">Digital Correspondence (Email)</Label>
               <Input 
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 onFocus={() => setIsTyping(true)}
                 onBlur={() => setIsTyping(false)}
-                className="h-14 border-2 border-gray-100 bg-gray-50/50 focus:bg-white focus:border-indigo-500 rounded-2xl transition-all text-lg placeholder:text-gray-300" 
+                className="h-14 border-2 border-gray-100 bg-gray-50/50 focus:bg-white focus:border-indigo-500 rounded-2xl transition-all text-lg text-black placeholder:text-gray-300" 
                 placeholder="name@secure-vexa.com"
                 required
               />
             </div>
 
             <div className="space-y-2 group">
-              <Label className="text-gray-400 font-black text-[10px] uppercase tracking-widest ml-1 group-focus-within:text-indigo-600 transition-colors">Node User</Label>
+              <Label className="text-gray-400 font-black text-[15px] uppercase tracking-widest ml-1 group-focus-within:text-indigo-600 transition-colors">Node User</Label>
               <Input 
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="h-14 border-2 border-gray-100 bg-gray-50/50 focus:bg-white focus:border-indigo-500 rounded-2xl transition-all text-lg placeholder:text-gray-300" 
+                className="h-14 border-2 border-gray-100 bg-gray-50/50 focus:bg-white focus:border-indigo-500 rounded-2xl transition-all text-lg text-black placeholder:text-gray-300" 
                 placeholder="v_node_77"
                 required
               />
             </div>
 
             <div className="space-y-2 group relative">
-              <Label className="text-gray-400 font-black text-[10px] uppercase tracking-widest ml-1 group-focus-within:text-indigo-600 transition-colors">Access Key</Label>
+              <Label className="text-gray-400 font-black text-[15px] uppercase tracking-widest ml-1 group-focus-within:text-indigo-600 transition-colors">Access Key</Label>
               <div className="relative">
                 <Input 
                   type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="h-14 pr-12 border-2 border-gray-100 bg-gray-50/50 focus:bg-white focus:border-indigo-500 rounded-2xl transition-all text-lg" 
+                  className="h-14 pr-12 border-2 border-gray-100 bg-gray-50/50 focus:bg-white focus:border-indigo-500 rounded-2xl transition-all text-lg text-black" 
                   placeholder="••••••••"
                   required
                 />

@@ -55,7 +55,7 @@
   color: var(--v-text-dim);
   text-transform: uppercase;
   letter-spacing: 0.3em;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 700;
   margin-bottom: 8px;
 }
@@ -199,4 +199,18 @@
   .v-main-balance { font-size: 3rem; }
   .v-transaction-table th:nth-child(1), 
   .v-transaction-table td:nth-child(1) { display: none; } /* Hide date on small mobile */
+}
+
+.v-status-pulse {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981; /* Emerald 500 */
+  border-radius: 50%;
+  animation: status-pulse 2s infinite;
+}
+
+@keyframes status-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
 }

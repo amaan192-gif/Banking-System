@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import BASE_URL from '../api';
 import axios from "axios";
 import { Eye, EyeOff, Sparkles } from "lucide-react";
 
@@ -13,7 +14,6 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 
-const BASE_URL = "http://localhost:4040";
 
 // --- ANIMATION HELPER COMPONENTS ---
 const EyeBall = ({ size = 48, pupilSize = 16, maxDistance = 10, isBlinking = false, forceLookX, forceLookY }) => {
@@ -167,7 +167,7 @@ const Login = ({ onLoginSuccess, onGoToSignup }) => {
 
           <form onSubmit={handleLogin} className="space-y-7">
             <div className="space-y-2 group">
-              <Label className="text-gray-500 font-bold text-xs uppercase tracking-widest ml-1 group-focus-within:text-blue-600 transition-colors">Client Username</Label>
+              <Label className="text-gray-500 font-bold text-xm uppercase tracking-widest ml-1 group-focus-within:text-blue-600 transition-colors">Client Username</Label>
               <Input 
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
@@ -180,7 +180,7 @@ const Login = ({ onLoginSuccess, onGoToSignup }) => {
             </div>
 
             <div className="space-y-2 group">
-              <Label className="text-gray-500 font-bold text-xs uppercase tracking-widest ml-1 group-focus-within:text-blue-600 transition-colors">Access Key</Label>
+              <Label className="text-gray-500 font-bold text-xm uppercase tracking-widest ml-1 group-focus-within:text-blue-600 transition-colors">Access Key</Label>
               <div className="relative">
                 <Input 
                   type={showPassword ? "text" : "password"}

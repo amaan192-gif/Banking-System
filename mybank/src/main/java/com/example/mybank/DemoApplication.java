@@ -9,9 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoApplication {
 
     public static void main(String[] args) {
-        // 1. Load .env file
+        
         Dotenv dotenv = Dotenv.configure()
-                .directory("./") // Look in the root folder
+                .directory("./") 
                 .ignoreIfMalformed()
                 .ignoreIfMissing()
                 .load();
