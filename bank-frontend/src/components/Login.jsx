@@ -10,9 +10,9 @@ const cn = (...inputs) => inputs.filter(Boolean).join(' ');
 
 // --- SHADCN-LIKE COMPONENTS (Internalized for reliability) ---
 // If your ./ui/ files still give errors, these internal versions will take over
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Label } from "./ui/label";
+import { Button } from "./ui/Button";
+import { Input } from "./ui/Input";
+import { Label } from "./ui/Label";
 
 
 // --- ANIMATION HELPER COMPONENTS ---
